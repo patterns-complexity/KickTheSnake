@@ -1,21 +1,37 @@
-# WORK IN PROGRESS: Kickthespy python package
+# KickTheSnake
+A kickthespy API wrapper for finding spy bots on Discord servers.
+## Description
+This is a python wrapper for the `kickthespy` API.
 
-A python package utilizing the kickthespy API to find spy bots on Discord servers
+This package allows you to find spy bots on Discord servers.
 
 ## Installation
-Just clone the repo and enter the directory:
 ```bash
 git clone <this_repo_url>
-cd kickthespy-python
+cd kickthesnake
+cp .env.example .env
 ```
 
 ## Usage
 ```bash
-python3 app.py SERVER_ID:SERVER_NAME, SERVER_ID:SERVER_NAME, ...
+python3 app.py SERVER_ID SERVER_ID SERVER_ID ...
 ```
 
 ## Disclaimer
-This is a work in progress, expect bugs and incomplete features. This is not an official kickthespy project.
+I am not the author or maintainer of the `kickthespy` API.
+
+This package is meant to help people use the API in a programmatic way.
+
+I am in no way affiliated with the `kickthespy` API.
+
+## Credits
+KickTheSpy official API URL:
+
+[https://kickthespy.pet/](https://kickthespy.pet/)
+
+Reddit account of the user who promoted the `kickthespy` API on Reddit:
+
+[https://www.reddit.com/user/Responsible_Mud_9310/](https://www.reddit.com/user/Responsible_Mud_9310/)
 
 ## License
 [MIT](LICENSE.MD)

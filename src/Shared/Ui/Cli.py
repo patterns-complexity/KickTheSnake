@@ -1,28 +1,27 @@
-from src.types import List
-
 import src.constants as constants
 
 from argparse import ArgumentParser
 
+from src.Shared.Ui.Exceptions.NoServersProvidedException import NoServersProvidedException
+
+from src.types import List
+
+
 parser = ArgumentParser()
 
 parser.add_argument(
-    f"-{constants.ARG_NAME_SHORT}",
-    f"--{constants.ARG_NAME}",
-    type=str,
-    required=True,
-    metavar=constants.METAVAR,
-    help=constants.HELP,
+    type=str, nargs="+", metavar=constants.METAVAR, help=constants.HELP, dest=constants.ARG_NAME
 )
 
 
-def validate_args(args: dict[str, str], required: List[str]) -> None:
-    for arg in required:
-        if not args[arg]:
-            parser.print_help()
-            raise ValueError(f"Argument {arg} is required")
+def print_help() -> None:
+    parser.print_help()
 
 
-def parse_args() -> dict[str, str]:
-    args_dict: dict[str, str] = vars(parser.parse_args())
-    return args_dict
+def validate_args(args: dict[str, List[str]]) -> None:
+    if not args[constants.ARG_NAME]:
+        raise NoServersProvidedException
+
+
+def parse_args() -> dict[str, List[str]]:
+    return vars(parser.parse_args())
