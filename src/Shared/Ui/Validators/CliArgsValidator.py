@@ -1,6 +1,6 @@
 from src.types import List
 
-from src.Shared.Ui.Sanitizers.cli_args_sanitizer import sanitize_whitespace
+from src.Shared.Ui.Sanitizers.CliArgsSanitizer import sanitize_whitespace
 
 
 def validate_server_id_string(server_id: str) -> None:

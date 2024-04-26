@@ -1,7 +1,7 @@
 from src.types import List
 
 from src.Bundles.Discord.Models.Server.DiscordServer import DiscordServer, DiscordServers
-from src.Shared.Ui.Sanitizers.cli_args_sanitizer import sanitize_whitespace
+from src.Shared.Ui.Sanitizers.CliArgsSanitizer import sanitize_whitespace
 
 
 def is_unique(server: str, server_list: List[str]) -> bool:

@@ -3,8 +3,8 @@ import src.constants as constants
 from time import sleep
 from requests import get, Response
 
-from src.Shared.Ui.cli import parse_args, validate_args
-from src.Shared.Ui.Validators.cli_args_validator import validate_server_list_string
+from src.Shared.Ui.Cli import parse_args, validate_args
+from src.Shared.Ui.Validators.CliArgsValidator import validate_server_list_string
 from src.Bundles.Discord.Models.Server.DiscordServer import DiscordServer, DiscordServers
 from src.Bundles.Discord.Models.User.DiscordUser import DiscordUser, DiscordUsers
 from src.Bundles.Discord.Services.ParserService import parse_server_list_string
