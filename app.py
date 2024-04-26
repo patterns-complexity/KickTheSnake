@@ -13,6 +13,9 @@ from src.Bundles.Discord.Validators.DiscordUserValidator import validate_discord
 from src.Bundles.Discord.Exceptions.InvalidDiscordUserDtoException import (
     InvalidDiscordUserDtoException,
 )
+from src.Bundles.Discord.Exceptions.NoDiscordUsersFoundException import (
+    NoDiscordUsersFoundException,
+)
 
 from src.Shared.Ui.Cli import parse_args, validate_args, print_help
 from src.Shared.Ui.Validators.CliArgsValidator import validate_server_id_list
@@ -53,6 +56,11 @@ if __name__ == "__main__":
         try:
             response: Response = request_bot_list(server)
             response_dict: dict[str, str] = dict(response.json())
+            if response.status_code == 404:
+                raise NoDiscordUsersFoundException(str(server.id))
+        except NoDiscordUsersFoundException as e:
+            print(f"No bot users found in server {e.server_id}!")
+            continue
         except Exception as e:
             print(f"Error requesting server {server.id}:")
             print(e)
